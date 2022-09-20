@@ -41,9 +41,10 @@ func Login(request *dto.LoginRequest, response *dto.LoginResponse) error {
 
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
-	claims["exp"] = expireTime
+	claims["exp"] = expireTime.Unix()
 	claims["authorized"] = true
 	claims["username"] = user.Username
+	claims["userId"] = user.Id
 	tokenString, err := token.SignedString(JwtKey)
 	if err != nil {
 		return err
