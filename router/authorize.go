@@ -9,5 +9,5 @@ func AddAuthorizeRouter(router *gin.Engine) {
 	router.GET("/signup", controller.GoToSignUpPage)
 	router.POST("/signup", controller.SignUp)
 	router.GET("/login", controller.GoToLoginpPage)
-	router.POST("/login", controller.Login)
+	router.POST("/oauth/token", controller.GrantToken)
 }

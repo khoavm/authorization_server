@@ -21,7 +21,7 @@ func SignUp(c *gin.Context) {
 	util.Success(c, "signup success!")
 	return
 }
-func Login(c *gin.Context) {
+func GrantToken(c *gin.Context) {
 	loginRequest := new(dto.LoginRequest)
 	if err := c.Bind(loginRequest); err != nil {
 		util.Error(c, 400, err)
